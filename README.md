@@ -14,68 +14,70 @@
 
 
 
-## Math in Forward propagation
+## Math for Forward Propagation
 
-\[
+$$
 Z^{[1]} = W^{[1]}X + b^{[1]}
-\]
+$$
 
-\[
+$$
 A^{[1]} = g_{\text{ReLU}}(Z^{[1]})
-\]
+$$
 
-\[
+$$
 Z^{[2]} = W^{[2]}A^{[1]} + b^{[2]}
-\]
+$$
 
-\[
+$$
 A^{[2]} = g_{\text{softmax}}(Z^{[2]})
-\]
+$$
 
 ---
 
-## Math in Backward propagation
+## Math for Backward Propagation
 
-\[
+$$
 dZ^{[2]} = A^{[2]} - Y
-\]
+$$
 
-\[
+$$
 dW^{[2]} = \frac{1}{m} dZ^{[2]} A^{[1]T}
-\]
+$$
 
-\[
+$$
 db^{[2]} = \frac{1}{m} \sum dZ^{[2]}
-\]
+$$
 
-\[
-dZ^{[1]} = W^{[2]T} dZ^{[2]} .* g'^{[1]}(Z^{[1]})
-\]
+$$
+dZ^{[1]} = W^{[2]T} dZ^{[2]} \cdot g'^{[1]}(Z^{[1]})
+$$
 
-\[
+$$
 dW^{[1]} = \frac{1}{m} dZ^{[1]} A^{[0]T}
-\]
+$$
 
-\[
+$$
 db^{[1]} = \frac{1}{m} \sum dZ^{[1]}
-\]
+$$
 
 ---
 
-## Math to update parameter weights
+## Math for Parameter Updates
 
-\[
+$$
 W^{[2]} := W^{[2]} - \alpha dW^{[2]}
-\]
+$$
 
-\[
+$$
 b^{[2]} := b^{[2]} - \alpha db^{[2]}
-\]
+$$
 
-\[
+$$
 W^{[1]} := W^{[1]} - \alpha dW^{[1]}
-\]
+$$
 
-\[
+$$
 b^{[1]} := b^{[1]} - \alpha db^{[1]}
-\]
+$$
+
+---
